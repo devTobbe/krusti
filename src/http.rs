@@ -1,5 +1,9 @@
 use serde::{Deserialize, Serialize};
 
+struct HttpClient {
+    url: String,
+    version: u8,
+}
 
 #[derive(Serialize)]
 struct AnkiRequest<T> {
