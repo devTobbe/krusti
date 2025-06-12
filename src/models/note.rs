@@ -1,3 +1,5 @@
+use crate::http::{HttpClient};
+
 use std::collections::{HashMap, HashSet};
 
 /// Represents a note in Anki
