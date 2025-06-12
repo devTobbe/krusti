@@ -2,8 +2,8 @@ use std::io::Error;
 
 use serde::{Deserialize, Serialize};
 
-struct HttpClient {
-    url: String,
+pub struct HttpClient {
+    uri: String,
     version: u8,
 }
 
@@ -24,7 +24,7 @@ struct AnkiResponse<T> {
 impl HttpClient {
     pub fn new(host: &str, port: u16) -> Self {
         Self {
-            url: format!("http://{}:{}", host, port),
+            uri: format!("http://{}:{}", host, port),
             version: 6, // AnkiConnect API Version
         }
     }
@@ -37,7 +37,7 @@ impl HttpClient {
             params,
         };
 
-        let mut response = ureq::post(&self.url)
+        let mut response = ureq::post(&self.uri)
             .send_json(&request)
             .unwrap();
 
