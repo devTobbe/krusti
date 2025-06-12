@@ -1,5 +1,4 @@
 mod client;
-mod builder;
 mod models;
 mod http;
 mod err;
